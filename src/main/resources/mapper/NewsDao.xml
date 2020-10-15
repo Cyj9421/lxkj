@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ct.com.lxkj.dao.NewsDao">
+    <select id="getAllNews" resultType="ct.com.lxkj.entitys.News" parameterType="java.util.Map">
+        select new_id,new_title,new_content,release_time,picurl,new_url,new_type from news
+    </select>
+    <delete id="delNewByNewId" parameterType="int">
+        delete from news where new_id=#{new_id}
+    </delete>
+    <select id="getNewByNewId" parameterType="int" resultType="ct.com.lxkj.entitys.News">
+        select new_id,new_title,new_content,release_time,picurl,new_url,new_type from news where new_id=#{new_id}
+    </select>
+    <insert id="addNew" parameterType="ct.com.lxkj.entitys.News">
+        insert into news(new_title,new_content,release_time,picurl,new_url,new_type)
+        values (
+        #{new_title},
+        #{new_content},
+        #{release_time},
+        #{picurl},
+        #{new_url},
+        #{new_type}
+        )
+    </insert>
+    <update id="updateNewByNewId" parameterType="ct.com.lxkj.entitys.News">
+        update news set
+        new_title=#{new_title},
+        new_content=#{new_content},
+        release_time=#{release_time},
+        picurl=#{picurl},
+        new_url=#{new_url},
+        new_type=#{new_type}
+        where new_id=#{new_id}
+    </update>
+
+</mapper>

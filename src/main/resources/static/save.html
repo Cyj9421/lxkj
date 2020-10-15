@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布新闻动态</title>
+    <link rel="stylesheet" href="bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bt/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="bt/js/jquery.js"></script>
+    <script type="text/javascript" src="bt/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <form enctype ="multipart/form-data" action="/api/lxkj/addNew" method="post">
+        <div class="form-group">
+            <label for="newTitle">新闻标题</label>
+            <input type="text" class="form-control" id="newTitle" name="newTitle" placeholder="请输入您要发布的新闻标题">
+        </div>
+        <div class="form-group">
+            <label for="newContent">新闻内容</label>
+            <textarea rows="6" id="newContent" name="newContent" placeholder="请输入您要发布的新闻内容" class="form-control">
+            </textarea>
+        </div>
+        <div class="form-group">
+            <label for="fileupload">请选择您要发布的新闻图片</label>
+           <input type="file" class="form-control-file" id="fileupload" name="multipartFile">
+        </div>
+        <input id="sub" class="btn btn-success form-control" type="submit" value="发布">
+    </form>
+</div>
+</body>
+</html>
+
+<script type="text/javascript">
+
+    $("#sub").click(function() {
+
+        var newTitle = $("#newTitle").val();
+        var newContent = $("#newContent").val();
+        // 新闻标题是否为空
+        if (newTitle.length == 0) {
+            alert("新闻标题不能为空")
+            return; // 不让程序继续往下执行了
+        }
+        //新闻内容是否为空
+        if (newContent.length == 0) {
+            alert("新闻内容不能为空")
+            return;//不让程序继续往下执行了
+        }
+
+        // // 封装数据，并提交给后端接口
+        // /*------radio不能用“checked”相等来判断，只用用true来判断--------*/
+        // var News = {
+        //     "new_title": new_title,
+        //     "new_content": new_content,
+        //     "picurl": picurl
+        // }
+        // // 将实体类转换为JSON
+        // var newJson = JSON.stringify(News)
+        // alert(newJson)
+        // // 提交给后端接口
+        // $.post({
+        //     url: '/api/lxkj/addNew',
+        //     data: newJson,
+        //     contentType: 'application/json',
+        //     fileElementId:'fileupload',//文件上传域的id
+        //     success: function (data) {
+        //         alert(data)
+        //     }
+        // });
+
+    })
+
+</script>

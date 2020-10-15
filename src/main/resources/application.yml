@@ -1,0 +1,35 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: root
+    password: 9421
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/lxkj?serverTimezone=GMT%2B8&amp
+  resources:
+    static-locations: classpath:/static
+  mvc:
+    static-path-pattern: /**
+    view:
+      prefix: /
+      suffix: .html
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      file-size-threshold: 0KB
+      enabled: true
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: ct.com.manager.dao.NewsDao
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  pageSizeZero: false #pageSize=0
+
+prop:
+  upload-folder: F:\IdeaProjects\lxkj\src\main\resources\static\images\
+#logging:
+#  level: ct.com.lxkj.dao

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传轮播图片</title>
+    <link rel="stylesheet" href="bt/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bt/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="bt/js/jquery.js"></script>
+    <script type="text/javascript" src="bt/js/bootstrap.min.js"></script>
+</head>
+<body>
+<form enctype ="multipart/form-data" action="/api/lxkj/fileUpload" method="post" >
+<div class="form-group">
+    <label for="fileupload">请选择您要发布的新闻图片</label>
+    <input type="file" class="form-control-file" id="fileupload" name="multipartFile">
+</div>
+<input id="sub" class="btn btn-success form-control" type="submit" value="发布">
+</form>
+</body>
+</html>

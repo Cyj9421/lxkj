@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ct.com.lxkj.dao.BanaerDao">
+    <insert id="addFile" parameterType="ct.com.lxkj.entitys.ShowPic">
+        insert into showpic(show_url) values (#{show_url})
+    </insert>
+    <select id="getFile" resultType="ct.com.lxkj.entitys.ShowPic" >
+        select pic_id,show_url from showpic
+    </select>
+
+    <delete id="delFile" parameterType="java.lang.Integer">
+        delete from  showpic where pic_id=#{pic_id};
+    </delete>
+</mapper>
